@@ -25,16 +25,17 @@ function init() {
     const removeBtn = document.createElement('button');
     removeBtn.textContent = ('Remove');
     removeBtn.className = ('remove');
+
+    /* eslint-disable no-loop-func */
     removeBtn.addEventListener('click', () => {
       div.style.display = ('none');
-      /* eslint-disable */
       for (let i = 0; i < book.length; i += 1) {
         if (book[i].title === title.textContent) {
           book.splice(i, 1);
           localStorage.setItem('list', JSON.stringify(book));
         }
       }
-      /* eslint-enable */
+
     });
     div.appendChild(removeBtn);
     const hr = document.createElement('hr');
