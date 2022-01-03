@@ -29,12 +29,12 @@ function init() {
       div.style.display = ('none');
       /* eslint-disable */
       for (let i = 0; i < book.length; i += 1) {
-      /* eslint-enable */
         if (book[i].title === title.textContent) {
           book.splice(i, 1);
           localStorage.setItem('list', JSON.stringify(book));
         }
       }
+      /* eslint-enable */
     });
     div.appendChild(removeBtn);
     const hr = document.createElement('hr');
