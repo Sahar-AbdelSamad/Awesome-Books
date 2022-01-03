@@ -5,23 +5,38 @@ class Collection {
   }
 }
 
+let book = [];
+
+const data = JSON.parse(localStorage.getItem('list'));
+window.onload = () => {
+  if (data) {
+    book = data;
+    init();
+  } 
+  else {
+    book = [
+      book1 = {
+        title: 'Book1',
+        author: 'Author1'
+      },
+      book2 = {
+        title: 'Book2',
+        author: 'Author2'
+      },
+      book3 = {
+        title: 'Book3',
+        author: 'Author3'
+      }
+    ]
+    init();
+    localStorage.setItem('list', JSON.stringify(book));
+  } 
+ };
+
 //Book displayed on the page
-let book = [
-  book1 = {
-    title: 'Book1',
-    author: 'Author1'
-  },
-  book2 = {
-    title: 'Book2',
-    author: 'Author2'
-  },
-  book3 = {
-    title: 'Book3',
-    author: 'Author3'
-  }
-]
-  console.log(book)
-for(let i=0 ;i<book.length; i++) {
+
+ function init() {
+  for(let i=0 ;i<book.length; i++) {
     const section = document.querySelector('.bookSection');
     const div = document.createElement('div');
     div.className = ('bookList');
@@ -41,6 +56,7 @@ for(let i=0 ;i<book.length; i++) {
       for(let i=0; i<book.length; i++) {
         if(book[i].title===title.textContent) {
           book.splice(i,1);
+          localStorage.setItem('list', JSON.stringify(book));
         }
       }
     });
@@ -48,8 +64,8 @@ for(let i=0 ;i<book.length; i++) {
     const hr = document.createElement('hr');
     div.appendChild(hr);
     section.appendChild(div);
-}
-  
+  }  
+ }
 
 //Add button
 const addBtn = document.querySelector('.btn');
@@ -60,6 +76,9 @@ function addNewBook() {
   const bookAuthor = document.querySelector('.author');
   const newBook = new Collection(bookTitle.value, bookAuthor.value);
   book.push(newBook);
+
+  localStorage.setItem('list', JSON.stringify(book));
+
   //New book displayed in the page
   if(bookTitle.value&&bookAuthor.value) {
     const section = document.querySelector('.bookSection');
@@ -94,15 +113,3 @@ function addNewBook() {
     bookAuthor.value = ('');
   }
 }
-
-//Local Storage
-const btn = document.querySelectorAll('button');
-btn.forEach((item) => item.addEventListener('click',() => {
-  localStorage.setItem('list', JSON.stringify(book));
-  console.log(book)
-}));
-const data = JSON.parse(localStorage.getItem('list'));
-console.log(data)
-window.onload = () => {
-  book = data;
-};
