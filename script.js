@@ -35,7 +35,6 @@ function init() {
           localStorage.setItem('list', JSON.stringify(book));
         }
       }
-
     });
     div.appendChild(removeBtn);
     const hr = document.createElement('hr');
