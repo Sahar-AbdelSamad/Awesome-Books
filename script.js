@@ -15,17 +15,19 @@ class Library {
     const newBook = new Collection(bookTitle.value, bookAuthor.value);
 
     Library.book.push(newBook);
+
     localStorage.setItem('list', JSON.stringify(Library.book));
+
     const section = document.querySelector('.bookSection');
     const div = document.createElement('div');
     div.className = ('bookList');
     section.appendChild(div);
     const title = document.createElement('p');
-    title.textContent = (newBook.title);
+    title.textContent = ('"'+newBook.title+'"');
     title.className = ('classTitle');
     div.appendChild(title);
     const author = document.createElement('p');
-    author.textContent = (newBook.author);
+    author.textContent = (' by '+newBook.author);
     title.className = ('classAuthor');
     div.appendChild(author);
     const removeBtn = document.createElement('button');
@@ -35,9 +37,9 @@ class Library {
     removeBtn.addEventListener('click', () => {
       div.style.display = ('none');
       // Remove the book from the collection
-      for (let i = 0; i < book.length; i += 1) {
-        if (book[i].title === newBook.title) {
-          book.splice(i, 1);
+      for (let i = 0; i < Library.book.length; i += 1) {
+        if (Library.book[i].title === newBook.title) {
+          Library.book.splice(i, 1);
           localStorage.setItem('list', JSON.stringify(Library.book));
         }
       }
@@ -56,11 +58,11 @@ class Library {
       const div = document.createElement('div');
       div.className = ('bookList');
       const title = document.createElement('p');
-      title.textContent = (Library.book[i].title);
+      title.textContent = ('"'+Library.book[i].title+'"');
       title.className = ('classTitle');
       div.appendChild(title);
       const author = document.createElement('p');
-      author.textContent = (Library.book[i].author);
+      author.textContent = (' by '+Library.book[i].author);
       author.className = ('classAuthor');
       div.appendChild(author);
       const removeBtn = document.createElement('button');
@@ -70,9 +72,9 @@ class Library {
       /* eslint-disable no-loop-func */
       removeBtn.addEventListener('click', () => {
         div.style.display = ('none');
-        for (let i = 0; i < Library.book.length; i += 1) {
-          if (Library.book[i].title === title.textContent) {
-            Library.book.splice(i, 1);
+        for (let j = 0; j < Library.book.length; j += 1) {
+          if (Library.book[j].title === Library.book[i].title) {
+            Library.book.splice(j, 1);
             localStorage.setItem('list', JSON.stringify(Library.book));
           }
         }
