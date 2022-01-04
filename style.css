@@ -1,3 +1,52 @@
+.pageTitle {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #cc9543;
+}
+
+.bookSection,
+.bookCreation {
+  max-width: 80%;
+  margin: auto;
+}
+
+.bookSection {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bookList {
+  display: flex;
+}
+
+.bookList:nth-child(odd) {
+  background-color: #e9f4d8;
+}
+
+.classTitle {
+  margin: auto 10%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.remove {
+  margin-left: auto;
+  margin-right: 20px;
+  align-self: center;
+  padding: 8px 12px;
+  background-color: #cc9543;
+  border: none;
+  box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+  border-radius: 5%;
+  color: white;
+}
+
+.classAuthor {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .author {
   margin: 10px 0;
 }

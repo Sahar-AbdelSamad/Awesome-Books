@@ -44,8 +44,6 @@ class Library {
     });
 
     div.appendChild(removeBtn);
-    const hr = document.createElement('hr');
-    div.appendChild(hr);
     // Empty input values
     bookTitle.value = ('');
     bookAuthor.value = ('');
@@ -80,8 +78,6 @@ class Library {
         }
       });
       div.appendChild(removeBtn);
-      const hr = document.createElement('hr');
-      div.appendChild(hr);
       section.appendChild(div);
     }
   }
