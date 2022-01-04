@@ -19,7 +19,6 @@
 
 .bookSection {
   border: 1px solid black;
-
   margin-bottom: 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -44,7 +43,7 @@
   padding: 8px 12px;
   background-color: #cc9543;
   border: none;
-  box-shadow: 0 0.05em 0.25em 0 rgba(0,0,0,0.5);
+  box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5);
   border-radius: 5%;
   color: white;
 }
