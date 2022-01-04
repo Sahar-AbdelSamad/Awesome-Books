@@ -28,7 +28,7 @@ class Library {
     div.appendChild(title);
     const author = document.createElement('p');
     author.textContent = (' by '+newBook.author);
-    title.className = ('classAuthor');
+    author.className = ('classAuthor');
     div.appendChild(author);
     const removeBtn = document.createElement('button');
     removeBtn.textContent = ('Remove');

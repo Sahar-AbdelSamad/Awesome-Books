@@ -8,12 +8,18 @@
 .bookCreation {
   max-width: 80%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookCreation {
+  max-width: 200px;
+  text-align: center;
 }
 
 .bookSection {
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
+
   margin-bottom: 5%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -27,7 +33,7 @@
 }
 
 .classTitle {
-  margin: auto 10%;
+  margin-left: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -47,6 +53,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.author {
-  margin: 10px 0;
+.btn {
+  margin: 0;
+  align-self: flex-end;
 }
