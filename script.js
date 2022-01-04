@@ -4,56 +4,16 @@ class Collection {
     this.author = author;
   }
 }
-
 let book = [];
 
-// Book displayed on the page
-
-function init() {
-  for (let i = 0; i < book.length; i += 1) {
-    const section = document.querySelector('.bookSection');
-    const div = document.createElement('div');
-    div.className = ('bookList');
-    const title = document.createElement('p');
-    title.textContent = (book[i].title);
-    title.className = ('classTitle');
-    div.appendChild(title);
-    const author = document.createElement('p');
-    author.textContent = (book[i].author);
-    author.className = ('classAuthor');
-    div.appendChild(author);
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = ('Remove');
-    removeBtn.className = ('remove');
-
-    /* eslint-disable no-loop-func */
-    removeBtn.addEventListener('click', () => {
-      div.style.display = ('none');
-      for (let i = 0; i < book.length; i += 1) {
-        if (book[i].title === title.textContent) {
-          book.splice(i, 1);
-          localStorage.setItem('list', JSON.stringify(book));
-        }
-      }
-    });
-    div.appendChild(removeBtn);
-    const hr = document.createElement('hr');
-    div.appendChild(hr);
-    section.appendChild(div);
-  }
-}
-
-// Add button
-function addNewBook() {
-  const bookTitle = document.querySelector('.title');
-  const bookAuthor = document.querySelector('.author');
-  const newBook = new Collection(bookTitle.value, bookAuthor.value);
-  book.push(newBook);
-
-  localStorage.setItem('list', JSON.stringify(book));
-
-  // New book displayed in the page
+class Library {
+addNewBook() {
   if (bookTitle.value && bookAuthor.value) {
+    console.log(bookTitle.value)
+    const newBook = new Collection(bookTitle.value, bookAuthor.value);
+    console.log(newBook)
+    book.push(newBook);
+    localStorage.setItem('list', JSON.stringify(book));
     const section = document.querySelector('.bookSection');
     const div = document.createElement('div');
     div.className = ('bookList');
@@ -69,15 +29,6 @@ function addNewBook() {
     const removeBtn = document.createElement('button');
     removeBtn.textContent = ('Remove');
     removeBtn.className = ('remove');
-    removeBtn.addEventListener('click', () => {
-      div.style.display = ('none');
-      // Remove the book from the collection
-      for (let i = 0; i < book.length; i += 1) {
-        if (book[i].title === newBook.title) {
-          book.splice(i, 1);
-        }
-      }
-    });
     div.appendChild(removeBtn);
     const hr = document.createElement('hr');
     div.appendChild(hr);
@@ -86,15 +37,43 @@ function addNewBook() {
     bookAuthor.value = ('');
   }
 }
-
-const addBtn = document.querySelector('.btn');
-addBtn.addEventListener('click', addNewBook);
-
-const data = JSON.parse(localStorage.getItem('list'));
-window.onload = () => {
+init() {
+    for (let i = 0; i < book.length; i += 1) {
+      const section = document.querySelector('.bookSection');
+      const div = document.createElement('div');
+      div.className = ('bookList');
+      const title = document.createElement('p');
+      title.textContent = (book[i].title);
+      title.className = ('classTitle');
+      div.appendChild(title);
+      const author = document.createElement('p');
+      author.textContent = (book[i].author);
+      author.className = ('classAuthor');
+      div.appendChild(author);
+      const removeBtn = document.createElement('button');
+      removeBtn.textContent = ('Remove');
+      removeBtn.className = ('remove');
+  
+      /* eslint-disable no-loop-func */
+      removeBtn.addEventListener('click', () => {
+        div.style.display = ('none');
+        for (let i = 0; i < book.length; i += 1) {
+          if (book[i].title === title.textContent) {
+            book.splice(i, 1);
+            localStorage.setItem('list', JSON.stringify(book));
+          }
+        }
+      });
+      div.appendChild(removeBtn);
+      const hr = document.createElement('hr');
+      div.appendChild(hr);
+      section.appendChild(div);
+    }
+  }
+onloadFunction() {
   if (data) {
     book = data;
-    init();
+    addNewBookToLibrary.init();
   } else {
     book = [
       {
@@ -110,7 +89,18 @@ window.onload = () => {
         author: 'Author3',
       },
     ];
-    init();
+    addNewBookToLibrary.init();
     localStorage.setItem('list', JSON.stringify(book));
   }
-};
+}
+}
+
+const addNewBookToLibrary = new Library();
+
+const bookTitle = document.querySelector('.title');
+const bookAuthor = document.querySelector('.author');
+const addBtn = document.querySelector('.btn');
+addBtn.addEventListener('click', addNewBookToLibrary.addNewBook);
+
+const data = JSON.parse(localStorage.getItem('list'));
+window.onload = addNewBookToLibrary.onloadFunction;
