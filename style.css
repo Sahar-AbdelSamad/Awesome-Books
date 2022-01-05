@@ -25,7 +25,11 @@
 
 .logo {
   margin-left: 10px;
-  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #545454;
 }
 
 .nav {
@@ -34,7 +38,6 @@
   align-items: center;
   padding: 0;
   margin-right: 20px;
-  
 }
 
 .nav li {
@@ -48,11 +51,6 @@
 .nav li:not(:first-child) {
   border-left: 1px solid #545454;
   padding-left: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: #545454;
 }
 
 .contactSection {

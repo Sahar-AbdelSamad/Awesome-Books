@@ -7,12 +7,9 @@ class Collection {
   }
 }
 
-let today = new Date().toUTCString();
+const today = new Date().toUTCString();
 const time = document.querySelector('.time');
 time.textContent = today;
-
-
-console.log(today);
 
 const bookTitle = document.querySelector('.title');
 const bookAuthor = document.querySelector('.author');
