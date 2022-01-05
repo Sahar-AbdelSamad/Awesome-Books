@@ -10,11 +10,35 @@ class Collection {
 const bookTitle = document.querySelector('.title');
 const bookAuthor = document.querySelector('.author');
 const addBtn = document.querySelector('.btn');
+const navList = document.querySelector('.list');
+const bookList = document.querySelector('.bookListSection');
+const navAddBook = document.querySelector('.addBook');
+const bookCreation = document.querySelector('.bookCreationSection');
+const navContact = document.querySelector('.contact');
+const contactInfo = document.querySelector('.contactSectionNav');
 
 const data = JSON.parse(localStorage.getItem('list'));
 
 class Library {
   static book = [];
+
+  static showList() {
+    bookList.style.display = ('block');
+    bookCreation.style.display = ('none');
+    contactInfo.style.display = ('none');
+  }
+
+  static createBooks() {
+    bookCreation.style.display = ('flex');
+    bookList.style.display = ('none');
+    contactInfo.style.display = ('none');
+  }
+
+  static showContactSection() {
+    contactInfo.style.display = ('flex');
+    bookList.style.display = ('none');
+    bookCreation.style.display = ('none');
+  }
 
   static addNewBook() {
     if (bookTitle.value && bookAuthor.value) {
@@ -118,3 +142,6 @@ class Library {
 addBtn.addEventListener('click', Library.addNewBook);
 
 window.onload = Library.onloadFunction;
+navList.addEventListener('click', Library.showList);
+navAddBook.addEventListener('click', Library.createBooks);
+navContact.addEventListener('click', Library.showContactSection);
