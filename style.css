@@ -1,27 +1,84 @@
+* {
+  color: #545454;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 70%;
+  border: 1px solid #545454;
+  margin: auto;
+  height: 40px;
+}
+
+.time {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  max-width: 70%;
+  margin: auto;
+  font-size: smaller;
+}
+
+.logo {
+  margin-left: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #545454;
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.nav li {
+  list-style-type: none;
+}
+
+.nav a:focus {
+  color: #cc9543;
+}
+
+.nav li:not(:first-child) {
+  border-left: 1px solid #545454;
+  padding-left: 10px;
+}
+
+.contactSection {
+  margin: auto;
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactSectionNav {
+  display: none;
+}
+
+/* Book List Section */
+
 .pageTitle {
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #cc9543;
+  margin-top: 50px;
 }
 
 .bookSection,
 .bookCreation {
-  max-width: 80%;
-  margin: auto;
+  max-width: 70%;
   display: flex;
+  margin: auto;
   flex-direction: column;
-}
-
-.bookCreation {
-  max-width: 250px;
-  text-align: center;
-  gap: 6px;
-}
-
-.bookSection {
-  border: 1px solid black;
-  margin-bottom: 5%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bookList {
@@ -34,7 +91,6 @@
 
 .classTitle {
   margin-left: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .remove {
@@ -53,7 +109,34 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Book Creation Section */
+
+.bookCreationSection {
+  display: none;
+}
+
+.bookCreation {
+  max-width: 250px;
+  text-align: center;
+  gap: 12px;
+  margin: 70px auto 100px;
+}
+
+.bookSection {
+  border: 1px solid #545454;
+}
+
 .btn {
   margin: 0;
   align-self: flex-end;
+}
+
+/* Footer */
+
+.footerSection {
+  margin-top: 50px;
+}
+
+.footer {
+  margin-left: 10px;
 }
