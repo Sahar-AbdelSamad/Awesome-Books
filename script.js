@@ -139,7 +139,7 @@ class Library {
   }
 
   static onloadFunction() {
-    if (data[0]) {
+    if (data[0]!==undefined) {
       for (let i = 0; i < data.length; i += 1) {
         data[i].id = i + 1;
       }
@@ -148,7 +148,6 @@ class Library {
     } else {
       const empty = document.querySelector('.emptyCollection');
       empty.style.display = ('flex');
-      Library.init();
     }
   }
 }

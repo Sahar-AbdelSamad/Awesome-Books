@@ -123,7 +123,7 @@ a {
 
 .emptyCollection {
   height: 40px;
-  display: block;
+  display: none;
   align-items: center;
   justify-content: center;
   margin-left: 20px;
@@ -175,4 +175,13 @@ a {
 
 .footer {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .header,
+  .bookSection,
+  .time,
+  .bookCreation {
+    max-width: 98%;
+  }
 }
