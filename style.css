@@ -54,7 +54,12 @@ a {
   color: #cc9543;
 }
 
-.nav li:not(:first-child) {
+.nav li:first-child {
+  border-right: 1px solid #545454;
+  padding-right: 10px;
+}
+
+.nav li:last-child {
   border-left: 1px solid #545454;
   padding-left: 10px;
 }
@@ -118,9 +123,10 @@ a {
 
 .emptyCollection {
   height: 40px;
-  display: none;
+  display: block;
   align-items: center;
   justify-content: center;
+  margin-left: 20px;
 }
 
 /* Book Creation Section */
