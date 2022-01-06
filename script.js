@@ -96,7 +96,9 @@ class Library {
   static removeMessageOnInput() {
     const bookAdded = document.querySelector('.bookAdded');
     const input = document.querySelector('input');
-    input.addEventListener('focus', () => bookAdded.style.display = ('none'))
+    input.addEventListener('focus', () => {
+      bookAdded.style.display = ('none');
+    });
   }
 
   static removeBook() {
