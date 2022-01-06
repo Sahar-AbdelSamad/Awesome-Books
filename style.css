@@ -180,8 +180,7 @@ a {
 @media screen and (max-width: 768px) {
   .header,
   .bookSection,
-  .time,
-  .bookCreation {
+  .time {
     max-width: 98%;
   }
 }
