@@ -6,11 +6,19 @@
 
 The app allows you to add, store and remove books.
 
+## Below is a GIF showing the app
+![gif](awesome-book.gif)
+
+## Live Demo
+
+You can see [the app live here](https://sahar-abdelsamad.github.io/Awesome-Books/)
+
 ## Built With
 
 - HTML, CSS, JavaScript.
 
-To get a local copy up and running follow these simple example steps.
+
+## To get a local copy up and running follow these simple example steps.
 
 ### Usage
 - Clone the repository using Git, Github Desktop or a version control manager of your choice.
@@ -39,7 +47,3 @@ Feel free to check the [issues page](https://github.com/Sahar-AbdelSamad/Awesome
 ## Show your support
 
 Give a ⭐️ if you like this project!
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
