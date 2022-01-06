@@ -3,6 +3,12 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.body {
+  position: relative;
+  min-height: 98.5vh;
+  margin: 5px;
+}
+
 /* Header */
 .header {
   display: flex;
@@ -93,7 +99,8 @@ a {
   margin-left: 10px;
 }
 
-.remove {
+.button,
+.removee {
   margin-left: auto;
   margin-right: 20px;
   align-self: center;
@@ -109,6 +116,13 @@ a {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.emptyCollection {
+  height: 40px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Book Creation Section */
 
 .bookCreationSection {
@@ -119,7 +133,7 @@ a {
   max-width: 250px;
   text-align: center;
   gap: 12px;
-  margin: 70px auto 100px;
+  margin: 0 auto;
 }
 
 .bookSection {
@@ -131,10 +145,26 @@ a {
   align-self: flex-end;
 }
 
+.bookAdded {
+  display: none;
+  font-weight: 900;
+  font-size: larger;
+  color: #424242;
+  text-align: center;
+}
+
 /* Footer */
 
+.empty {
+  padding-bottom: 40px;
+  height: 40px;
+}
+
 .footerSection {
-  margin-top: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .footer {
