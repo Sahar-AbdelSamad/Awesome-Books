@@ -103,7 +103,7 @@ a {
   background-color: #e9f4d8;
 }
 
-.classTitle {
+.bookInfo {
   margin-left: 10px;
 }
 
@@ -118,10 +118,6 @@ a {
   box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.5);
   border-radius: 5%;
   color: white;
-}
-
-.classAuthor {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .emptyCollection {
