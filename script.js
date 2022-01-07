@@ -65,7 +65,7 @@ class Library {
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.dataset.id = (Library.book.length - 1);
+      removeButton.id = (Library.book.length - 1);
       div.appendChild(removeButton);
       // Empty input values
       bookTitle.value = ('');
@@ -95,12 +95,12 @@ class Library {
   static removeBook(ev) {
     const elementToRemove = document.querySelectorAll('[data-id]');
     elementToRemove.forEach((item) => {
-      if (item.dataset.id === ev.target.dataset.id) {
+      if (item.dataset.id === ev.target.id) {
         item.style.display = ('none');
       }
     });
     for (let i = 0; i < Library.book.length; i += 1) {
-      if (i.toString() === ev.target.dataset.id) {
+      if (i.toString() === ev.target.id) {
         Library.book.splice(i, 1);
         localStorage.setItem('list', JSON.stringify(Library.book));
       }
@@ -120,7 +120,7 @@ class Library {
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.dataset.id = (i);
+      removeButton.id = (i);
       div.appendChild(removeButton);
       section.appendChild(div);
       const removeBtn = document.querySelectorAll('.removee');
@@ -132,9 +132,6 @@ class Library {
     const empty = document.querySelector('.emptyCollection');
     if (data[0] !== undefined) {
       empty.style.display = ('none');
-      for (let i = 0; i < data.length; i += 1) {
-        data[i].id = i + 1;
-      }
       Library.book = data;
       Library.init();
     } else {
