@@ -40,7 +40,6 @@ a {
 
 .nav {
   display: flex;
-  gap: 10px;
   align-items: center;
   padding: 0;
   margin-right: 20px;
@@ -62,6 +61,10 @@ a {
 .nav li:last-child {
   border-left: 1px solid #545454;
   padding-left: 10px;
+}
+
+.addBook {
+  margin: 0 10px;
 }
 
 .contactSection {
