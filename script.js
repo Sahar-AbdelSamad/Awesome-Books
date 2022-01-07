@@ -95,9 +95,11 @@ class Library {
 
   static removeMessageOnInput() {
     const bookAdded = document.querySelector('.bookAdded');
-    const input = document.querySelector('input');
-    input.addEventListener('focus', () => {
-      bookAdded.style.display = ('none');
+    const input = document.querySelectorAll('input');
+    input.forEach((item) => {
+      item.addEventListener('focus', () => {
+        bookAdded.style.display = ('none');
+      });
     });
   }
 
@@ -139,14 +141,16 @@ class Library {
   }
 
   static onloadFunction() {
-    if (data[0]!==undefined) {
-      const empty = document.querySelector('.emptyCollection');
+    const empty = document.querySelector('.emptyCollection');
+    if (data[0] !== undefined) {
       empty.style.display = ('none');
       for (let i = 0; i < data.length; i += 1) {
         data[i].id = i + 1;
       }
       Library.book = data;
       Library.init();
+    } else {
+      empty.style.display = ('flex');
     }
   }
 }
