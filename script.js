@@ -140,14 +140,13 @@ class Library {
 
   static onloadFunction() {
     if (data[0]!==undefined) {
+      const empty = document.querySelector('.emptyCollection');
+      empty.style.display = ('none');
       for (let i = 0; i < data.length; i += 1) {
         data[i].id = i + 1;
       }
       Library.book = data;
       Library.init();
-    } else {
-      const empty = document.querySelector('.emptyCollection');
-      empty.style.display = ('flex');
     }
   }
 }
