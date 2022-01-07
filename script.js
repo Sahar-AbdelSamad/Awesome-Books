@@ -56,7 +56,7 @@ class Library {
       const section = document.querySelector('.bookSection');
       const div = document.createElement('div');
       div.className = ('bookList');
-      div.id = (Library.book.length - 1);
+      div.dataset.id = (Library.book.length - 1);
       section.appendChild(div);
       const bookInfo = document.createElement('p');
       bookInfo.textContent = (`"${bookTitle.value}" by ${bookAuthor.value}`);
@@ -65,7 +65,7 @@ class Library {
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.id = (Library.book.length - 1);
+      removeButton.dataset.id = (Library.book.length - 1);
       div.appendChild(removeButton);
       // Empty input values
       bookTitle.value = ('');
@@ -93,10 +93,14 @@ class Library {
   }
 
   static removeBook(ev) {
-    const elementToRemove = document.getElementById(ev.target.id);
-    elementToRemove.style.display = ('none');
+    const elementToRemove = document.querySelectorAll('[data-id]');
+    elementToRemove.forEach((item) => {
+      if (item.dataset.id === ev.target.dataset.id) {
+        item.style.display = ('none');
+      }
+    });
     for (let i = 0; i < Library.book.length; i += 1) {
-      if (i.toString() === ev.target.id) {
+      if (i.toString() === ev.target.dataset.id) {
         Library.book.splice(i, 1);
         localStorage.setItem('list', JSON.stringify(Library.book));
       }
@@ -108,7 +112,7 @@ class Library {
       const section = document.querySelector('.bookSection');
       const div = document.createElement('div');
       div.className = ('bookList');
-      div.id = (i);
+      div.dataset.id = (i);
       const bookInfo = document.createElement('p');
       bookInfo.textContent = (`"${Library.book[i].title}" by ${Library.book[i].author}`);
       bookInfo.className = ('bookInfo');
@@ -116,7 +120,7 @@ class Library {
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.id = (i);
+      removeButton.dataset.id = (i);
       div.appendChild(removeButton);
       section.appendChild(div);
       const removeBtn = document.querySelectorAll('.removee');
