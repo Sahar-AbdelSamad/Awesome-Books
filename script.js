@@ -1,4 +1,4 @@
-/* eslint-disable max-classes-per-file, eqeqeq */
+/* eslint-disable eqeqeq */
 const today = new Date().toUTCString();
 const time = document.querySelector('.time');
 time.textContent = today;
@@ -15,19 +15,10 @@ const contactInfo = document.querySelector('.contactSectionNav');
 
 const data = JSON.parse(localStorage.getItem('list'));
 
-class Count {
-  constructor() {
-    this.id = 0;
-  }
-}
-
-const cc = new Count();
-
 class Library {
   constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.id = cc.id;
   }
 
   static book = [];
@@ -60,27 +51,22 @@ class Library {
     if (bookTitle.value && bookAuthor.value) {
       const empty = document.querySelector('.emptyCollection');
       empty.style.display = ('none');
-      cc.id += 1;
-      const newBook = new Library(bookTitle.value, bookAuthor.value, cc.id);
+      const newBook = new Library(bookTitle.value, bookAuthor.value);
       Library.book.push(newBook);
       localStorage.setItem('list', JSON.stringify(Library.book));
       const section = document.querySelector('.bookSection');
       const div = document.createElement('div');
       div.className = ('bookList');
-      div.id = (cc.id);
+      div.id = (Library.book.length-1);
       section.appendChild(div);
-      const title = document.createElement('p');
-      title.textContent = (`"${newBook.title}"`);
-      title.className = ('classTitle');
-      div.appendChild(title);
-      const author = document.createElement('p');
-      author.textContent = (` by ${newBook.author}`);
-      author.className = ('classAuthor');
+      const bookInfo = document.createElement('p');
+      bookInfo.textContent = (`"${bookTitle.value}" by ${bookAuthor.value}`);
+      bookInfo.className = ('bookInfo');
+      div.appendChild(bookInfo);
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.id = (cc.id);
-      div.appendChild(author);
+      removeButton.id = (Library.book.length-1);
       div.appendChild(removeButton);
       // Empty input values
       bookTitle.value = ('');
@@ -107,36 +93,31 @@ class Library {
     });
   }
 
-  static removeBook() {
-    const elementToRemove = document.getElementById(this.id);
+  static removeBook(ev) {
+    const elementToRemove = document.getElementById(ev.target.id);
     elementToRemove.style.display = ('none');
     for (let i = 0; i < Library.book.length; i += 1) {
-      if (`"${Library.book[i].title}"` === elementToRemove.children[0].textContent && Library.book[i].id == this.id) {
+      if(i.toString()===ev.target.id) {
         Library.book.splice(i, 1);
-        localStorage.setItem('list', JSON.stringify(Library.book));
+        localStorage.setItem('list', JSON.stringify(Library.book)); 
       }
     }
   }
 
   static init() {
     for (let i = 0; i < Library.book.length; i += 1) {
-      cc.id += 1;
       const section = document.querySelector('.bookSection');
       const div = document.createElement('div');
       div.className = ('bookList');
-      div.id = (cc.id);
-      const title = document.createElement('p');
-      title.textContent = (`"${Library.book[i].title}"`);
-      title.className = ('classTitle');
-      div.appendChild(title);
-      const author = document.createElement('p');
-      author.textContent = (` by ${Library.book[i].author}`);
-      author.className = ('classAuthor');
-      div.appendChild(author);
+      div.id = (i);
+      const bookInfo = document.createElement('p');
+      bookInfo.textContent = (`"${Library.book[i].title}" by ${Library.book[i].author}`);
+      bookInfo.className = ('bookInfo');
+      div.appendChild(bookInfo);
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.id = (cc.id);
+      removeButton.id = (i);
       div.appendChild(removeButton);
       section.appendChild(div);
       const removeBtn = document.querySelectorAll('.removee');
