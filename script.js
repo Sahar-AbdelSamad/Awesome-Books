@@ -1,4 +1,3 @@
-/* eslint-disable eqeqeq */
 const today = new Date().toUTCString();
 const time = document.querySelector('.time');
 time.textContent = today;
@@ -57,7 +56,7 @@ class Library {
       const section = document.querySelector('.bookSection');
       const div = document.createElement('div');
       div.className = ('bookList');
-      div.id = (Library.book.length-1);
+      div.id = (Library.book.length - 1);
       section.appendChild(div);
       const bookInfo = document.createElement('p');
       bookInfo.textContent = (`"${bookTitle.value}" by ${bookAuthor.value}`);
@@ -66,7 +65,7 @@ class Library {
       const removeButton = document.createElement('button');
       removeButton.textContent = ('Remove');
       removeButton.className = ('removee');
-      removeButton.id = (Library.book.length-1);
+      removeButton.id = (Library.book.length - 1);
       div.appendChild(removeButton);
       // Empty input values
       bookTitle.value = ('');
@@ -97,9 +96,9 @@ class Library {
     const elementToRemove = document.getElementById(ev.target.id);
     elementToRemove.style.display = ('none');
     for (let i = 0; i < Library.book.length; i += 1) {
-      if(i.toString()===ev.target.id) {
+      if (i.toString() === ev.target.id) {
         Library.book.splice(i, 1);
-        localStorage.setItem('list', JSON.stringify(Library.book)); 
+        localStorage.setItem('list', JSON.stringify(Library.book));
       }
     }
   }
