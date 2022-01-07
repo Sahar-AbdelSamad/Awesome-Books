@@ -33,6 +33,10 @@ class Library {
   static book = [];
 
   static showList() {
+    const empty = document.querySelector('.emptyCollection');
+    if (Library.book.length === 0) {
+      empty.style.display = ('flex');
+    }
     bookList.style.display = ('block');
     bookCreation.style.display = ('none');
     contactInfo.style.display = ('none');
