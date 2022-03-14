@@ -17,12 +17,20 @@ You can see [the app live here](https://sahar-abdelsamad.github.io/Awesome-Books
 
 - HTML, CSS, JavaScript.
 
+## Setup
+### Clone this repository
 
-## To get a local copy up and running follow these simple example steps.
+```bash
+$ git clone git@github.com:Sahar-AbdelSamad/Awesome-Books.git
+$ cd Awesome-Books
+```
 
-### Usage
-- Clone the repository using Git, Github Desktop or a version control manager of your choice.
-- Open index.html with a web browser.
+### Run project
+
+```bash
+$ npm install
+$ npm run start
+```
 
 ## Authors
 
